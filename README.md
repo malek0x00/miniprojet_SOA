@@ -1,7 +1,6 @@
 # Mini projet microservices
-This repository demonstrates an example implementation of a combined GraphQL and REST API using Express.js and a SQLite database. 
+This project uses GraphQL, REST API using Express.js and an SQLite database. 
 # Usage
-customers-orders-reservations:
 
 git clone https://github.com/malek0x00/miniprojet_SOA.git
 
@@ -23,7 +22,7 @@ DELETE /car/:id Deletes a car by their ID.
 
 #GraphQL Endpoint
 
-Port: Port: http://localhost:5001/graphql
+Port: http://localhost:5000/graphql
 ``` 
 mutation {
   addCar(matricule: "200 TN 2312", color: "Red", model: "BMW") {
@@ -62,7 +61,7 @@ mutation {
  ``` 
 
 
-# reservation Microservices 
+# reservation Microservice
 
 #REST Endpoints
 
@@ -83,7 +82,7 @@ Please note that for the REST endpoints, the data is stored in a SQLite database
 
 #GraphQL Endpoint
 
-Port:http://localhost:5000/graphql
+Port:http://localhost:5001/graphql
 
 ```
 mutation {
