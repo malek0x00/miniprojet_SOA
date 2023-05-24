@@ -1,29 +1,22 @@
 const express = require('express');
 const { createProxyMiddleware } = require('http-proxy-middleware');
-const cors = require('cors');
+
+// define routes and their ports 
+const routes = {
+    '/cars': 'http://localhost:5000',
+    '/reservations': 'http://localhost:5001'
+};
+
+// create a proxy for each route 
 const app = express();
-const port = 5005;
-const bodyParser = require('body-parser');
-// Proxy middleware for car server
-const carProxy = createProxyMiddleware('/car', {
-  target: 'http://localhost:5000',
-  changeOrigin: true,
-});
+for(const route in routes){
+    const target = routes[route];
+    app.use(route, createProxyMiddleware({target}));
+}
 
-// Proxy middleware for reservation server
-const reservationProxy = createProxyMiddleware('/reservation', {
-  target: 'http://localhost:5001',
-  changeOrigin: true,
-});
-
-// Mount the proxy middleware
-app.use(carProxy);
-app.use(reservationProxy);
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
-
-// Start the server
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
+// start the proxy
+const PORT = 5005;
+app.listen(PORT, () => {
+    console.log(`Api-gateway server listening on port ${PORT}`);
+}
+);
