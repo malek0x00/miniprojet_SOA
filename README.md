@@ -22,7 +22,7 @@ DELETE /car/:id Deletes a car by their ID.
 
 #GraphQL Endpoint
 
-Port: http://localhost:5000/graphql
+URL: http://localhost:5000/graphql
 ``` 
 mutation {
   addCar(matricule: "200 TN 2312", color: "Red", model: "BMW") {
@@ -82,7 +82,7 @@ Please note that for the REST endpoints, the data is stored in a SQLite database
 
 #GraphQL Endpoint
 
-Port:http://localhost:5001/graphql
+URL:http://localhost:5001/graphql
 
 ```
 mutation {
